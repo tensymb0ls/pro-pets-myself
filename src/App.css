@@ -58,3 +58,35 @@ body {
   background-repeat: no-repeat;
   background-size: calc(60%);
 }
+
+.pos0 {
+  z-index: 10;
+}
+.pos12 {
+  margin-left: -8px;
+  z-index: 9;
+}
+.pos24 {
+  margin-left: -8px;
+  z-index: 8;
+}
+.pos36 {
+  margin-left: -8px;
+  z-index: 7;
+}
+.pos48 {
+  margin-left: -8px;
+  z-index: 6;
+}
+.pos60 {
+  margin-left: -8px;
+  z-index: 5;
+}
+.pos72 {
+  margin-left: -8px;
+  z-index: 4;
+}
+.pos84 {
+  margin-left: -8px;
+  z-index: 3;
+}

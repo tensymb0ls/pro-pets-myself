@@ -19,9 +19,9 @@ import NewsAllNewsIcon from "../components/icons/news/NewsAllNewsIcon";
 import NewsLostFoundIcon from "../components/icons/news/NewsLostFoundIcon";
 import NewsTopNewsIcon from "../components/icons/news/NewsTopNewsIcon";
 import NewsUptadeIcon from "../components/icons/news/NewsUptadeIcon";
-import Like1 from '../images/like1.jfif';
-import Like2 from '../images/like2.jfif';
-import Like3 from '../images/like3.jfif';
+import Like1 from '../images/like1.jpg';
+import Like2 from '../images/like2.jpg';
+import Like3 from '../images/like3.jpg';
 
 // ! Every object in array must have uniqe id
 

@@ -14,8 +14,10 @@ const NewsDisplayPostStats = () => {
             return { count, operation };
         });
     };
-    const lastLikes = PostLikes.slice(-3); // clange this if you need to display more last likes
+    const limiter = 3; // clange this if you need to display more/less last likers
+    const lastLikes = limiter > 0 ? PostLikes.slice(-limiter) : [];
     const counter = 12;
+
     return (
         <div className='h-[28px] flex items-center gap-[16px]'>
             <button onClick={handleClick} className={`${state.operation === '+' ? 'bg-[#FF7171] text-white' : 'bg-colorExtraLightGray'} flex gap-[4px] items-center justify-center rounded-full  text-colorTextLightGray leading-[10px] py-[4px] px-[8px]`}>
@@ -24,10 +26,12 @@ const NewsDisplayPostStats = () => {
             <button className='bg-colorExtraLightGray flex gap-[4px] items-center justify-center rounded-full  text-colorTextLightGray leading-[10px] py-[4px] px-[8px]'>
                 <PostCommentIcon /><p className='mt-[2px]'>554</p></button>
             <button className='bg-colorExtraLightGray flex gap-[4px] items-center justify-center rounded-full  text-colorTextLightGray leading-[10px] py-[4px] px-[8px]'>
-                <PostRepostIcon /><p className='mt-[2px]'>98</p></button>
-            <div className='relative flex items-center text-colorTextLightGray '>
-                {lastLikes.map((item, index) => <img src={item.user} className={`rounded-full border-white border-2 aspect-square object-cover w-[24px] absolute teft-[${index * 12 + counter}px]`} />)}
-                <p className=''>Jasey, Petra and 6 friends Like this post</p></div>
+                <PostRepostIcon /><p className='mt-[2px]'>98</p>
+            </button>
+            <div className='flex items-center relative text-colorTextLightGray h-[24px]'>
+                {lastLikes.map((item, index) => <img src={item.user} key={item.id} className={`rounded-full border-white border-2 aspect-square object-cover w-[24px] pos${(index * 12)}`} />)}
+            </div>
+            {limiter > 0 ? <p className='text-colorTextLightGray'>Jasey, Petra and 6 friends Like this post</p> : ''}
         </div>
     );
 };

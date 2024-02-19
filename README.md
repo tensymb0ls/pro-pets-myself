@@ -1,6 +1,8 @@
-# React-Router-Dom & Tailwindcss
+# Educational project
 
-## Rsbuild Project
+## Selfcoded
+
+## Stack: React, Tailwindcss, Rsbuild
 
 ## Setup
 

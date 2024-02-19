@@ -1,14 +1,15 @@
-import { defineConfig } from '@rsbuild/core';
-import { pluginReact } from '@rsbuild/plugin-react';
+import { defineConfig } from "@rsbuild/core";
+import { pluginReact } from "@rsbuild/plugin-react";
 
 export default defineConfig({
   plugins: [pluginReact()],
   output: {
     distPath: {
-      root: 'build',
+      root: "build",
     },
   },
   html: {
-    template: './static/index.html',
+    template: "./static/index.html",
+    favicon: "./src/assets/favicon.ico",
   },
 });
