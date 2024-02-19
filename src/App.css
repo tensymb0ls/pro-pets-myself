@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Nunito Sans-PP";
+  src: url("./fonts/NunitoSans_10pt-Regular.ttf");
+}
+
+:root {
+  --mainFont: Nunito Sans-PP, ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --accent: #ff855f;
+  --bodyBgColor: #f3f3f3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--mainFont);
+  background-color: var(--bodyBgColor);
+}
+.nav:hover {
+  color: #fff;
+}
+.nav:hover > svg {
+  filter: invert(1);
+}
+.nav:hover .link > svg {
+  filter: invert(1);
+}
+
+.nav:hover .notification {
+  background-color: #fff;
+  color: var(--accent);
+}
+.active > svg {
+  filter: invert(1);
+}
+
+.notification {
+  color: #fff;
+}
+.DashBoardBg {
+  background-image: url(./images/HeaderDashboardBg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.notificationBox {
+  background-color: white;
+  background-image: url(./components/icons/notificationOrange.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: calc(60%);
+}
