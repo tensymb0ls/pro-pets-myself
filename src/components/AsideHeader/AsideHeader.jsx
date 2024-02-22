@@ -10,12 +10,10 @@ const AsideHeader = ({ userInfo }) => {
                 <p className='text-subContentSize my-[10px] ml-[5px]'> My account</p>
             </div>
             <div className='flex gap-[10px] py-[10px]'>
-                <div className='h-[40px] w-[40px] rounded-full relative' style={{
+                <div style={{
                     backgroundImage: `url(${userInfo.photo})`,
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat',
-                }}>
+                }}
+                    className='h-[40px] w-[40px] rounded-full relative bg-center bg-cover bg-no-repeat' >
                     <div className='h-[15px] w-[15px] rounded-full bg-accent absolute bottom-0 right-0'></div>
                 </div>
                 <div>

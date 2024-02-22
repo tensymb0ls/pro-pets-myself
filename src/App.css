@@ -20,6 +20,12 @@
   box-sizing: border-box;
 }
 
+[contenteditable="true"]:empty:before {
+  content: attr(placeholder);
+  pointer-events: none;
+  display: block; /* For Firefox */
+}
+
 body {
   font-family: var(--mainFont);
   background-color: var(--bodyBgColor);

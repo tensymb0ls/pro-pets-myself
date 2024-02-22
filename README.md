@@ -19,3 +19,5 @@ Start the dev server:
 ```bash
 npm start dev
 ```
+
+navigate to: http://localhost:8080/dashboard

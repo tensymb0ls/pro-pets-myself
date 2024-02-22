@@ -23,7 +23,7 @@ export const Dashboard = () => {
 
       <div className=" container m-auto flex justify-between">
         <Aside user={user} state={state} setState={setState} />
-        <div className="w-[100%] max-w-[max(50vw,380px)]">{outlet || <News />}</div> {/* default block for dashboard */}
+        <div className="w-[100%] max-w-[max(65vw,380px)]">{outlet || <News />}</div> {/* default block for dashboard */}
         <div className="hidden lg:block flex-none w-[330px] m-[10px] rounded-[15px] bg-[#fff] shadow-componentshadow text-center">
           Map
         </div>
