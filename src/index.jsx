@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Suspense } from "react";
 import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import App from './App';
+import "./i18n.js";
 import LoginPage from './pages/LoginPage';
 import News from './pages/News';
 import Map from './pages/Map';
@@ -20,8 +21,13 @@ import Volunteers from './pages/Volunteers';
 import OtherServices from './pages/OtherServices';
 import Profile from './pages/Profile';
 import { Dashboard } from './pages/Dashboard/Dashboard';
+import Error404 from './pages/Error404';
 
 const router = createBrowserRouter([
+  {
+    path: "/*",
+    element: <Error404 />,
+  },
   {
     path: "/dashboard",
     element: <Dashboard />,
@@ -90,6 +96,8 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Suspense fallback="loading">
+      <RouterProvider router={router} />
+    </Suspense>
   </React.StrictMode>,
 );
