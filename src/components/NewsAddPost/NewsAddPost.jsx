@@ -12,12 +12,19 @@ const NewsAddPost = () => {
     const [text, setText] = useState(placeholder);
     const [isFocused, setIsFocused] = useState(false);
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+    }
+
     return (
-        <div className='flex flex-col gap-[15px] p-[15px] bg-[#fff] rounded-[15px] shadow-componentshadow'>
+        <div className='flex flex-col gap-[15px] p-[15px] bg-[#fff] rounded-[15px] shadow-componentshadow'
+            onSubmit={(e) => handleSubmit(e)}>
             <div className='flex gap-[10px] items-center'>
                 <div style={{ backgroundImage: `url(${UserPhoto})` }}
                     className='h-[40px] w-[40px] rounded-full relative bg-center bg-cover bg-no-repeat' ></div>
                 <div contentEditable="true"
+                    name='content'
                     placeholder={text ? text : placeholder}
                     onFocus={() => setIsFocused(true)}
                     onBlur={() => { setIsFocused(false); setText(text.trim() ? text.trim() : placeholder) }}
@@ -34,7 +41,8 @@ const NewsAddPost = () => {
                         <PostIconWrapper><PostPhotoIcon /></PostIconWrapper>
                         <PostIconWrapper><PostLinkIcon /></PostIconWrapper>
                     </div>
-                    <button className="bg-accent py-[12px] border border-accent px-[15px] rounded-[10px] text-[#fff]  gap-[10px] whitespace-nowrap hover:bg-opacity-90">
+                    <button className="bg-accent py-[12px] border border-accent px-[15px] rounded-[10px] text-[#fff]  gap-[10px] whitespace-nowrap hover:bg-opacity-90"
+                        type='submit'>
                         Publish
                     </button>
                 </div>
