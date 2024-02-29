@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NewsDisplayPostStats from '../NewsDisplayPostStats/NewsDisplayPostStats';
 import NewsMoreInfoButton from '../NewsMoreInfoButton/NewsMoreInfoButton';
 import NewsIFoundPetButton from '../NewsIFoundPetButton/NewsIFoundPetButton';
@@ -7,11 +7,29 @@ import LostCat from '../../images/lostcat.jfif';
 import NewsLocationIcon from '../icons/news/NewsLocationIcon';
 import NewsDisplayHeader from '../NewsDisplayHeader/NewsDisplayHeader';
 
+const InitialObject = {
+    date: '',
+    author: '',
+    content: '',
+    picture: '',
+    _id: '',
+    __v: 0,
+}
+
 const NewsDisplayUpdates = () => {
     const [expand, setExpand] = useState(false);
     const handleExpand = () => {
         setExpand(!expand);
     };
+
+    const [posts, setPosts] = useState([InitialObject]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/posts')
+            .then(responce => responce.json())
+            .then(responce => setPosts(responce))
+    }, [])
+
     return (
         <section className='flex flex-col gap-[35px]'>
             <div className='flex flex-col gap-[15px]'>
@@ -50,6 +68,14 @@ const NewsDisplayUpdates = () => {
                     </div>
                 </article>
                 <NewsDisplayPostStats />
+            </div>
+            <div>
+                {posts.map((item) => <div key={item._id}>
+                    <p>{item._id}</p>
+                    <p>{item.date}</p>
+                    <p>{item.author}</p>
+                    <p>{item.content}</p>
+                </div>)}
             </div>
         </section>
     );

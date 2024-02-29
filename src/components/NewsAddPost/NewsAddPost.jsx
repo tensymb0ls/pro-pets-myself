@@ -12,24 +12,44 @@ const NewsAddPost = () => {
     const [text, setText] = useState(placeholder);
     const [isFocused, setIsFocused] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
 
-    }
+    const handleSendClick = async () => {
+        const formData = new FormData();
+        const date = new Date().toISOString();
+        const author = 'Dorothy Kovalsky Parker'; // ! temporary hardcode
+        const content = document.querySelector("#content").textContent;
+
+        console.log(date + ' ' + author + ' ' + content);
+
+        formData.append("date", date);
+        formData.append("author", author);
+        formData.append("content", content);
+
+        try {
+            const response = await fetch('http://localhost:5000/posts', {
+                method: 'POST',
+                body: formData,
+            });
+
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
 
     return (
-        <div className='flex flex-col gap-[15px] p-[15px] bg-[#fff] rounded-[15px] shadow-componentshadow'
-            onSubmit={(e) => handleSubmit(e)}>
+        <div className='flex flex-col gap-[15px] p-[15px] bg-[#fff] rounded-[15px] shadow-componentshadow'>
             <div className='flex gap-[10px] items-center'>
                 <div style={{ backgroundImage: `url(${UserPhoto})` }}
                     className='h-[40px] w-[40px] rounded-full relative bg-center bg-cover bg-no-repeat' ></div>
                 <div contentEditable="true"
                     name='content'
+                    id='content'
                     placeholder={text ? text : placeholder}
                     onFocus={() => setIsFocused(true)}
                     onBlur={() => { setIsFocused(false); setText(text.trim() ? text.trim() : placeholder) }}
                     suppressContentEditableWarning={true}
-                    onInput={e => setText(e.currentTarget.textContent)}
+                    onInput={e => setText(e.currentTarget.innerText)}
                     className='bg-colorExtraLightGray w-[100%] rounded-[10px] p-[8px] text-colorTextLightGray resize-none hover:bg-colorLightGray hover:cursor-pointer focus:hover:bg-white focus:bg-white focus:cursor-auto focus:outline-colorExtraLightGray focus:text-colorTextBlack'>
                 </div>
             </div>
@@ -42,7 +62,8 @@ const NewsAddPost = () => {
                         <PostIconWrapper><PostLinkIcon /></PostIconWrapper>
                     </div>
                     <button className="bg-accent py-[12px] border border-accent px-[15px] rounded-[10px] text-[#fff]  gap-[10px] whitespace-nowrap hover:bg-opacity-90"
-                        type='submit'>
+                        id='send'
+                        onClick={handleSendClick}>
                         Publish
                     </button>
                 </div>
