@@ -31,7 +31,7 @@ const NewsDisplayPostStats = () => {
             <div className='flex items-center relative text-colorTextLightGray h-[24px]'>
                 {lastLikes.map((item, index) => <img src={item.user} key={item.id} className={`rounded-full border-white border-2 aspect-square object-cover w-[24px] pos${(index * 12)}`} />)}
             </div>
-            {limiter > 0 ? <p className='text-colorTextLightGray'>Jasey, Petra and 6 friends Like this post</p> : ''}
+            {limiter > 0 ? <p className='text-colorTextLightGray hidden xl:block'>Jasey, Petra and 6 friends Like this post</p> : ''}
         </div>
     );
 };

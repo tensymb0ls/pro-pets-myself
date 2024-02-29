@@ -4,6 +4,7 @@ import { ButtonSecondary } from "../ButtonSecondary/ButtonSecondary";
 import { GlobalSearch } from "../GlobalSearch/GlobalSearch";
 import { CatInBox } from "../icons/CatInBox";
 import { PawIcon } from "../icons/PawIcon";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import { Logo } from "../Logo/Logo";
 import { Notification } from "../Notification/Notification";
 
@@ -18,6 +19,7 @@ export const HeaderDashboard = () => {
         <div className="flex flex-1 items-center gap-[15px] w-[590px] mr-[25px] ml-[85px]  ">
           <Notification />
           <GlobalSearch />
+          <LanguageSwitcher />
         </div>
         <div className="hidden items-center gap-[15px] lg:flex lg:justify-between lg:flex-initial lg:w-[330px]">
           <ButtonPrimary icon={<CatInBox />} text="I found a Pet" />

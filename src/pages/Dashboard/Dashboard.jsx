@@ -1,6 +1,7 @@
 import Aside from "../../components/Aside/Aside";
 import { HeaderDashboard } from "../../components/HeaderDashboard/HeaderDashboard";
 import UserIcon from "../../images/Dorothy.jpg";
+import Ad from '../../images/Ads.png'
 import "../../App.css";
 import { Outlet, useOutlet } from "react-router-dom";
 import News from "../News";
@@ -21,11 +22,12 @@ export const Dashboard = () => {
     <div>
       <HeaderDashboard />
 
-      <div className=" container m-auto flex justify-between">
+      <div className=" container m-auto flex xl:justify-between">
         <Aside user={user} state={state} setState={setState} />
-        <div className="w-[100%] max-w-[max(65vw,380px)]">{outlet || <News />}</div> {/* default block for dashboard */}
-        <div className="hidden lg:block flex-none w-[330px] m-[10px] rounded-[15px] bg-[#fff] shadow-componentshadow text-center">
+        <div className="w-[100%] max-w-[max(65vw,300px)]">{outlet || <News />}</div> {/* default block for dashboard */}
+        <div className="hidden min-[1154px]:block flex-none w-[330px] m-[10px] rounded-[15px] bg-[#fff] shadow-componentshadow text-center">
           Map
+          <img src={Ad} alt="Adblock" />
         </div>
       </div>
     </div>
