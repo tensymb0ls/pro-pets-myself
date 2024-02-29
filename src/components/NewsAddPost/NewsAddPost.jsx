@@ -14,26 +14,30 @@ const NewsAddPost = () => {
 
 
     const handleSendClick = async () => {
-        const formData = new FormData();
-        const date = new Date().toISOString();
+        const currDate = new Date();
+        const date = `${currDate.getFullYear()}.${(currDate.getMonth() + 1).toString().padStart(2, '0')}.${currDate.getDate().toString().padStart(2, '0')}, ${currDate.getHours().toString().padStart(2, '0')}:${currDate.getMinutes().toString().padStart(2, '0')}`;
         const author = 'Dorothy Kovalsky Parker'; // ! temporary hardcode
         const content = document.querySelector("#content").textContent;
-
-        console.log(date + ' ' + author + ' ' + content);
-
-        formData.append("date", date);
-        formData.append("author", author);
-        formData.append("content", content);
+        const data = {
+            date,
+            author,
+            content,
+        }
 
         try {
-            const response = await fetch('http://localhost:5000/posts', {
+            fetch('http://localhost:5000/posts', {
                 method: 'POST',
-                body: formData,
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
             });
 
         } catch (error) {
             console.log(error);
         }
+        setText(placeholder);
+        document.querySelector("#content").innerHTML = '';
     };
 
 
@@ -62,7 +66,6 @@ const NewsAddPost = () => {
                         <PostIconWrapper><PostLinkIcon /></PostIconWrapper>
                     </div>
                     <button className="bg-accent py-[12px] border border-accent px-[15px] rounded-[10px] text-[#fff]  gap-[10px] whitespace-nowrap hover:bg-opacity-90"
-                        id='send'
                         onClick={handleSendClick}>
                         Publish
                     </button>
