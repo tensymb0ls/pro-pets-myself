@@ -1,10 +1,7 @@
 import React, { FC } from "react";
+import { IconColor } from "../../../types/IconColor.interface";
 
-interface PostLikeIconProps {
-  color: string;
-}
-
-const PostLikeIcon: FC<PostLikeIconProps> = ({ color }) => {
+const PostLikeIcon: FC<IconColor> = ({ color }) => {
   return (
     <svg
       width="20"

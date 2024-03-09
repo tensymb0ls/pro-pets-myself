@@ -1,4 +1,6 @@
-const NewsAllNewsIcon = () => {
+import React from "react";
+
+const NewsUptadeIcon = () => {
   return (
     <svg
       width="17"
@@ -8,19 +10,19 @@ const NewsAllNewsIcon = () => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M7.48805 2.66666H4.44044C3.59886 2.66666 2.91663 3.3489 2.91663 4.19047V11.8095C2.91663 12.6511 3.59886 13.3333 4.44044 13.3333H12.0595C12.9011 13.3333 13.5833 12.6511 13.5833 11.8095V4.19047"
+        d="M5.2024 2.66667C3.36492 3.71647 2.15479 5.73223 2.15479 8C2.15479 11.3663 4.88372 14.0952 8.25002 14.0952M11.2976 13.3333C13.0398 12.2605 14.3453 10.1962 14.3453 8C14.3453 4.63369 11.6163 1.90476 8.25002 1.90476"
         stroke="#161616"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M10.5357 8L8.24995 10.2857L5.96423 8"
+        d="M5.2024 5.71428V2.66666H2.15479"
         stroke="#161616"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M13.5833 2.66666H10.5357C9.27335 2.66666 8.25 3.69001 8.25 4.95238V10.2857"
+        d="M11.2976 10.2857V13.3333H14.3452"
         stroke="#161616"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -29,4 +31,4 @@ const NewsAllNewsIcon = () => {
   );
 };
 
-export default NewsAllNewsIcon;
+export default NewsUptadeIcon;
