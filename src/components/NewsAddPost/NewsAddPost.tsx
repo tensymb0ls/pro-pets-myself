@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import UserPhoto from "../../images/Dorothy.jpg";
 import { useState } from "react";
 import PostVideoIcon from "../icons/post/PostVideoIcon";
@@ -11,7 +11,7 @@ const NewsAddPost: React.FC = () => {
   const placeholder = "What’s on your mind, Dorothy?";
   const [text, setText] = useState<string>(placeholder);
   const [isFocused, setIsFocused] = useState<boolean>(false);
-
+  const contentElement = document.querySelector("#content");
   const handleSendClick = async () => {
     const currDate = new Date();
     const date = `${currDate.getFullYear()}.${(currDate.getMonth() + 1)
@@ -24,7 +24,6 @@ const NewsAddPost: React.FC = () => {
       .toString()
       .padStart(2, "0")}:${currDate.getMinutes().toString().padStart(2, "0")}`;
     const author = "Dorothy Kovalsky Parker"; // ! temporary hardcode
-    const contentElement = document.querySelector("#content");
     const content = contentElement ? contentElement.textContent : "";
     const data = {
       date,
@@ -40,11 +39,16 @@ const NewsAddPost: React.FC = () => {
         },
         body: JSON.stringify(data),
       });
+      setText(placeholder);
+      contentElement ? (contentElement.innerHTML = "") : "";
     } catch (error) {
       console.log(error);
     }
-    setText(placeholder);
-    contentElement ? (contentElement.innerHTML = "") : "";
+  };
+
+  // autoheight for textarea
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setText(event.target.value);
   };
 
   return (
@@ -54,20 +58,22 @@ const NewsAddPost: React.FC = () => {
           style={{ backgroundImage: `url(${UserPhoto})` }}
           className="h-[40px] w-[40px] rounded-full relative bg-center bg-cover bg-no-repeat"
         ></div>
-        <div
-          contentEditable="true"
+        <textarea
+          onChange={handleChange}
+          style={{ height: Math.min(300, text.split("\n").length * 20) + "px" }}
           name="content"
           id="content"
-          placeholder={text ? text : placeholder}
+          placeholder={text.trim() ? text.trim() : placeholder}
+          onInput={(e) => setText(e.currentTarget.innerText)}
           onFocus={() => setIsFocused(true)}
           onBlur={() => {
             setIsFocused(false);
             setText(text.trim() ? text.trim() : placeholder);
           }}
           suppressContentEditableWarning={true}
-          onInput={(e) => setText(e.currentTarget.innerText)}
-          className="bg-colorExtraLightGray w-[100%] rounded-[10px] p-[8px] text-colorTextLightGray resize-none hover:bg-colorLightGray hover:cursor-pointer focus:hover:bg-white focus:bg-white focus:cursor-auto focus:outline-colorExtraLightGray focus:text-colorTextBlack"
-        ></div>
+          required
+          className="bg-colorExtraLightGray w-full min-h-[40px] overflow-y-hidden resize-none rounded-[10px] p-[8px] text-colorTextLightGray hover:bg-colorLightGray hover:cursor-pointer focus:hover:bg-white focus:bg-white focus:cursor-auto focus:outline-colorExtraLightGray focus:text-colorTextBlack"
+        ></textarea>
       </div>
       {text.trim() !== placeholder || isFocused ? (
         <div className="flex gap-[10px] items-center justify-between">

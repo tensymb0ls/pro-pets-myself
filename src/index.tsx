@@ -1,27 +1,24 @@
 import React, { Suspense } from "react";
-import ReactDOM from 'react-dom/client';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import App from './App';
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import App from "./App";
 import "./i18n.js";
-import LoginPage from './pages/LoginPage';
-import News from './pages/News';
-import Map from './pages/Map';
-import Wanted from './pages/Wanted';
-import Wiki from './pages/Wiki';
-import Messenger from './pages/Messenger';
-import Friends from './pages/Friends';
-import Groups from './pages/Groups';
-import VetHelp from './pages/VetHelp';
-import PetStore from './pages/PetStore';
-import PetShelters from './pages/PetShelters';
-import Volunteers from './pages/Volunteers';
-import OtherServices from './pages/OtherServices';
-import Profile from './pages/Profile';
-import { Dashboard } from './pages/Dashboard/Dashboard';
-import Error404 from './pages/Error404';
+import LoginPage from "./pages/LoginPage";
+import News from "./pages/News";
+import Map from "./pages/Map";
+import Wanted from "./pages/Wanted";
+import Wiki from "./pages/Wiki";
+import Messenger from "./pages/Messenger";
+import Friends from "./pages/Friends";
+import Groups from "./pages/Groups";
+import VetHelp from "./pages/VetHelp";
+import PetStore from "./pages/PetStore";
+import PetShelters from "./pages/PetShelters";
+import Volunteers from "./pages/Volunteers";
+import OtherServices from "./pages/OtherServices";
+import Profile from "./pages/Profile";
+import { Dashboard } from "./pages/Dashboard/Dashboard";
+import Error404 from "./pages/Error404";
 
 const router = createBrowserRouter([
   {
@@ -84,20 +81,24 @@ const router = createBrowserRouter([
         path: "otherservices",
         element: <OtherServices />,
       },
-    ]
+    ],
   },
   {
     path: "/login",
     element: <LoginPage />,
   },
-
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <Suspense fallback="loading">
-      <RouterProvider router={router} />
-    </Suspense>
-  </React.StrictMode>,
-);
+const rootElement = document.getElementById("root");
+if (rootElement) {
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
+    <React.StrictMode>
+      <Suspense fallback="loading">
+        <RouterProvider router={router} />
+      </Suspense>
+    </React.StrictMode>
+  );
+} else {
+  console.error('Root element with id "root" not found in the document.');
+}

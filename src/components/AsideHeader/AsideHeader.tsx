@@ -5,7 +5,7 @@ interface AsideHeaderProps {
   userInfo: {
     firstName: string;
     lastName: string;
-    photo: JSX.Element;
+    photo: string;
     role: string;
     isActive: boolean;
   };

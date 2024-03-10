@@ -23,6 +23,7 @@
     "@rsbuild/plugin-react": "^0.4.1",
     "@types/file-loader": "^5.0.4",
     "@types/react": "^18.2.64",
+    "@types/react-dom": "^18.2.21",
     "ts-loader": "^9.5.1",
     "typescript": "^5.4.2"
   }
