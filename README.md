@@ -2,7 +2,7 @@
 
 ## Selfcoded
 
-## Stack: React, Tailwindcss, Rsbuild
+## Stack: React, TypeScript, Tailwindcss | Build with Rsbuild
 
 ## Setup
 
@@ -17,7 +17,7 @@ npm install
 Start the dev server:
 
 ```bash
-npm start dev
+npm run dev
 ```
 
 navigate to: http://localhost:8080/dashboard
