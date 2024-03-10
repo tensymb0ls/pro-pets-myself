@@ -6,7 +6,6 @@ import "../../App.css";
 import { Outlet, useOutlet } from "react-router-dom";
 import News from "../News";
 import { useState } from "react";
-import { UserType } from "../../types/User.type";
 
 export const Dashboard = () => {
   // user data template
