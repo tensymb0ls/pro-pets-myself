@@ -19,6 +19,8 @@ import OtherServices from "./pages/OtherServices";
 import Profile from "./pages/Profile";
 import { Dashboard } from "./pages/Dashboard/Dashboard";
 import Error404 from "./pages/Error404";
+import { store } from "./app/store";
+import { Provider } from "react-redux";
 
 const router = createBrowserRouter([
   {
@@ -95,7 +97,9 @@ if (rootElement) {
   root.render(
     <React.StrictMode>
       <Suspense fallback="loading">
-        <RouterProvider router={router} />
+        <Provider store={store}>
+          <RouterProvider router={router} />
+        </Provider>
       </Suspense>
     </React.StrictMode>
   );
