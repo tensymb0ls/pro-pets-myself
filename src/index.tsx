@@ -19,7 +19,7 @@ import OtherServices from "./pages/OtherServices";
 import Profile from "./pages/Profile";
 import { Dashboard } from "./pages/Dashboard/Dashboard";
 import Error404 from "./pages/Error404";
-import { store } from "./app/store";
+import { store } from "./store/store";
 import { Provider } from "react-redux";
 
 const router = createBrowserRouter([
