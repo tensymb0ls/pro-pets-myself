@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
 import { getPostById, getPosts } from "./postsService";
 
 export type Post = {
@@ -6,6 +7,7 @@ export type Post = {
   author: string;
   date: string;
   content: string;
+  __v: number;
   picture?: string;
 };
 export interface PostsState {
@@ -22,6 +24,7 @@ const initialState: PostsState = {
     author: "",
     date: "",
     content: "",
+    __v: 0,
   },
   isPostsLoading: false,
   postsErrorMessage: "",
@@ -46,15 +49,15 @@ export const postsSlice = createSlice({
       })
       .addCase(getPostById.pending, (state) => {
         state.isPostsLoading = true;
+      })
+      .addCase(getPostById.fulfilled, (state, action) => {
+        state.isPostsLoading = false;
+        state.post = action.payload;
+      })
+      .addCase(getPostById.rejected, (state, action) => {
+        state.isPostsLoading = false;
+        state.postsErrorMessage = String(action.payload);
       });
-    // .addCase(getPostById.fulfilled, (state, action) => {
-    //   state.isPostsLoading = false;
-    //   state.post = action.payload;
-    // })
-    // .addCase(getPostById.rejected, (state, action) => {
-    //   state.isPostsLoading = false;
-    //   state.postsErrorMessage = String(action.payload);
-    // });
   },
 });
 
