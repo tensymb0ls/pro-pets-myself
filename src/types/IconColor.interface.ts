@@ -1,3 +1,3 @@
 export interface IconColor {
-  color: string;
+  color?: string;
 }

@@ -128,10 +128,26 @@ export const AsideNavServices: AsideNavItem[] = [
 
 // ! id's of objects in NewsNavState and NewsDisplayItems matches (id:0 for "All News" nav batton and displayed category, etc.)
 export const NewsNavState: NewsNavType[] = [
-  { id: 0, title: "All News", icon: () => <NewsAllNewsIcon /> },
-  { id: 1, title: "Lost & Found", icon: () => <NewsLostFoundIcon /> },
-  { id: 2, title: "Top News", icon: () => <NewsTopNewsIcon /> },
-  { id: 3, title: "Updates", icon: () => <NewsUptadeIcon /> },
+  {
+    id: 0,
+    title: "All News",
+    icon: ({ color }) => <NewsAllNewsIcon color={color} />,
+  },
+  {
+    id: 1,
+    title: "Lost & Found",
+    icon: ({ color }) => <NewsLostFoundIcon color={color} />,
+  },
+  {
+    id: 2,
+    title: "Top News",
+    icon: ({ color }) => <NewsTopNewsIcon color={color} />,
+  },
+  {
+    id: 3,
+    title: "Updates",
+    icon: ({ color }) => <NewsUptadeIcon color={color} />,
+  },
 ];
 
 export const NewsDisplayItems: NewsDisplayType[] = [

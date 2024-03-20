@@ -1,6 +1,7 @@
 import React from "react";
+import { IconColor } from "../../../types/IconColor.interface";
 
-const NewsTopNewsIcon = () => {
+const NewsTopNewsIcon: React.FC<IconColor> = ({ color }) => {
   return (
     <svg
       width="17"
