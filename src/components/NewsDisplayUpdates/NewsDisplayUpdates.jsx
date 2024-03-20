@@ -6,6 +6,8 @@ import Placeholder from '../../images/videoplaceholder.png'
 import LostCat from '../../images/lostcat.jfif';
 import NewsLocationIcon from '../icons/news/NewsLocationIcon';
 import NewsDisplayHeader from '../NewsDisplayHeader/NewsDisplayHeader';
+import { useDispatch } from 'react-redux';
+import { getPosts } from '../../store/features/posts/postsService'
 
 const InitialObject = {
     date: '',
@@ -29,6 +31,9 @@ const NewsDisplayUpdates = () => {
             .then(responce => responce.json())
             .then(responce => setPosts(responce))
     }, [])
+
+    const dispatch = useDispatch();
+    dispatch(getPosts());
 
     return (
         <section className='flex flex-col gap-[35px]'>
