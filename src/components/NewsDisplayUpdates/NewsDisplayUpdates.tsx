@@ -6,6 +6,13 @@ import Placeholder from "../../images/videoplaceholder.png";
 import LostCat from "../../images/lostcat.jfif";
 import NewsLocationIcon from "../icons/news/NewsLocationIcon";
 import NewsDisplayHeader from "../NewsDisplayHeader/NewsDisplayHeader";
+import { useDispatch, useSelector } from "react-redux";
+import { getPosts } from "../../store/features/posts/postsService";
+import { AppDispatch } from "../../store/store";
+import { combineReducers } from "@reduxjs/toolkit";
+
+const rootReducer = combineReducers({});
+export type IRootState = ReturnType<typeof rootReducer>;
 
 const InitialObject = {
   date: "",
@@ -29,6 +36,11 @@ const NewsDisplayUpdates = () => {
       .then((responce) => responce.json())
       .then((responce) => setPosts(responce));
   }, []);
+
+  const dispatch = useDispatch<AppDispatch>();
+  // const allPosts = useSelector((state: IRootState) => state.posts.posts);
+  // lesson 86, 0:40
+  dispatch(getPosts());
 
   return (
     <section className="flex flex-col gap-[35px]">

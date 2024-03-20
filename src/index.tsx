@@ -21,6 +21,7 @@ import { Dashboard } from "./pages/Dashboard/Dashboard";
 import Error404 from "./pages/Error404";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
+import SignUp from "./pages/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />,
+  },
+  {
+    path: "/signup",
+    element: <SignUp />,
   },
 ]);
 
