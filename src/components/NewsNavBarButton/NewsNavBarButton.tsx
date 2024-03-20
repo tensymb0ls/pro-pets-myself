@@ -29,7 +29,7 @@ const NewsNavBarButton: React.FC<Props> = ({
         state === id ? "bg-accent text-[#fff] active" : "bg-[#fff]"
       } basis-[20%] flex items-center justify-center gap-[4px] rounded-[5px] p-[8px] hover:bg-accent hover:text-white`}
     >
-      <Icon color={hover ? "#FFFFFF" : state === id ? "#444" : "#ffffff"} />{" "}
+      <Icon color={hover ? "#FFFFFF" : state === id ? "#ffffff" : "#444"} />{" "}
       <span className="max-w-[90%] truncate">{title}</span>
     </button>
   );
