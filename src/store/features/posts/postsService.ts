@@ -17,7 +17,7 @@ export const getPosts = createAsyncThunk(
 
 // *get post by id
 export const getPostById = createAsyncThunk(
-  "posts/get_posts",
+  "posts/get_post",
   async (id, { rejectWithValue }) => {
     try {
       const responce = await $api.get("/posts/" + id);
