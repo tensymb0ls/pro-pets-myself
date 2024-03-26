@@ -41,12 +41,12 @@ const NewsDisplayPostStats: React.FC = () => {
         <PostRepostIcon />
         <p className="mt-[2px]">98</p>
       </button>
-      <div className="flex items-center relative text-colorTextLightGray h-[24px]">
+      <div className="flex items-center relative text-colorTextLightGray h-[24px] pl-[10px]">
         {lastLikes.map((item) => (
           <img
             src={item.user}
             key={item.id}
-            className={`rounded-full border-white border-2 aspect-square object-cover w-[24px]`}
+            className={`rounded-full border-white border-2 aspect-square object-cover w-[24px] -ml-[10px]`}
           />
         ))}
       </div>
